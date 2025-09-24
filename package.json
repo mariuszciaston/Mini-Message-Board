@@ -1,0 +1,23 @@
+{
+  "name": "mini-message-board",
+  "version": "1.0.0",
+  "description": "Simple message board application built with Node.js and Express.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node --watch app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mariuszciaston/Mini-Message-Board.git"
+  },
+  "author": "Mariusz Ciastoń",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mariuszciaston/Mini-Message-Board/issues"
+  },
+  "homepage": "https://github.com/mariuszciaston/Mini-Message-Board#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0"
+  }
+}
