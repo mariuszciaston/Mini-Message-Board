@@ -1,0 +1,21 @@
+<%- include('partials/header') %>
+    <header>
+        <h1>
+            <%= title %>
+        </h1>
+        <a href="/new" class="new-message-button">Add New Message</a>
+    </header>
+    <main>
+        <ul>
+            <% messages.forEach(function(msg) { %>
+                <li>
+                    <strong>
+                        <%= msg.user %>
+                    </strong>
+                    <%= msg.text %>
+                        <em>(<%= msg.added.toLocaleString() %>)</em>
+                </li>
+                <% }) %>
+        </ul>
+    </main>
+    <%- include('partials/footer') %>

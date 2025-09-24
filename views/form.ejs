@@ -1,0 +1,10 @@
+<%- include('partials/header') %>
+    <main>
+        <h1>New Message</h1>
+        <form method="POST" action="/new">
+            <input type="text" name="author" placeholder="Your name" required>
+            <input type="text" name="messageText" placeholder="Your message" required>
+            <button type="submit">Send</button>
+        </form>
+    </main>
+    <%- include('partials/footer') %>
