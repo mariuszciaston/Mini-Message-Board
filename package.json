@@ -2,9 +2,18 @@
   "name": "mini-message-board",
   "version": "1.0.0",
   "description": "Simple message board application built with Node.js and Express.",
-  "main": "app.js",
+  "main": "index.ts",
+  "type": "commonjs",
   "scripts": {
-    "start": "node --watch app"
+    "dev": "tsx --watch --env-file .env src/index.ts",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "node --env-file .env dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +28,21 @@
   "dependencies": {
     "ejs": "^3.1.10",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.37.0",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.7.0",
+    "eslint": "^9.37.0",
+    "eslint-plugin-perfectionist": "^4.15.1",
+    "prettier": "^3.6.2",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.45.0"
+  },
+  "keywords": [],
+  "imports": {
+    "#*": "./src/*"
   }
 }
