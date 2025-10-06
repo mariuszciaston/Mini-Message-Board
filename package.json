@@ -2,17 +2,18 @@
   "name": "mini-message-board",
   "version": "1.0.0",
   "description": "Simple message board application built with Node.js and Express.",
-  "main": "index.ts",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "dev": "tsx --watch --env-file .env src/index.ts",
+    "tailwind:build": "npx @tailwindcss/cli -i src/styles/input.css -o public/output.css --minify --watch",
     "type-check": "tsc --noEmit",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
+    "clean": "rm -rf dist",
+    "build": "tsc && cp -r src/views dist/views",
     "start": "node --env-file .env dist/index.js"
   },
   "repository": {
@@ -26,8 +27,10 @@
   },
   "homepage": "https://github.com/mariuszciaston/Mini-Message-Board#readme",
   "dependencies": {
+    "@tailwindcss/cli": "^4.1.14",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "tailwindcss": "^4.1.14"
   },
   "devDependencies": {
     "@eslint/js": "^9.37.0",

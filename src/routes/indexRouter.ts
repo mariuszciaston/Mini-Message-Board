@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { getIndex, postNewMessage } from "../controllers/indexController";
+import { getIndex, postNewMessage } from "../controllers/indexController.js";
 
 const indexRouter = Router();
 

@@ -1,12 +1,15 @@
 import express from "express";
 import { ErrorRequestHandler } from "express";
 import path from "node:path";
+import { fileURLToPath } from "url";
 
-import indexRouter from "./routes/indexRouter";
-import newRouter from "./routes/newRouter";
+import indexRouter from "./routes/indexRouter.js";
+import newRouter from "./routes/newRouter.js";
 
 const app = express();
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -29,7 +32,7 @@ const errorHandler: ErrorRequestHandler = (
   _req,
   res,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _next
+  _next,
 ) => {
   console.error(err);
   res.status(err.statusCode ?? 500).send(err.message);

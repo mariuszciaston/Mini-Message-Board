@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 
-import messages from "../db";
+import messages from "../db.js";
 
 interface Message {
   added: Date;
@@ -30,4 +30,4 @@ function postNewMessage(
   res.redirect("/");
 }
 
-export  { getIndex, postNewMessage };
+export { getIndex, postNewMessage };
