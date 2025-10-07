@@ -25,26 +25,41 @@
         <% const colors =
         ["bg-red-200","bg-yellow-200","bg-green-200","bg-blue-200","bg-purple-200"];
         let colorPool = []; const repeatTimes = Math.ceil(messages.length /
-        colors.length); for (let i = 0; i < repeatTimes; i++) { colorPool =
-        colorPool.concat(colors); } colorPool.sort(() => Math.random() - 0.5);
-        %>
+        colors.length); for (let i = 0; i < repeatTimes; i++) colorPool =
+        colorPool.concat(colors); colorPool.sort(() => Math.random() - 0.5); %>
 
         <div
           class="grid [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))] place-items-center gap-12"
         >
           <% messages.slice().reverse().forEach(function(msg, i) { %>
           <div
-            class="<%= colorPool[i] %> flex aspect-3/2 w-full flex-col items-center justify-center overflow-hidden p-8 font-light text-black shadow-md"
+            class="<%= colorPool[i] %> group flex aspect-3/2 w-full flex-col items-center justify-center overflow-hidden p-8 font-light text-black shadow-md duration-150 hover:bg-white hover:shadow-lg"
           >
+            <!-- Message text (default visible) -->
             <span
-              class="line-clamp-2 p-1 text-center text-2xl wrap-anywhere hyphens-auto whitespace-normal italic"
+              class="line-clamp-2 p-1 text-center text-2xl wrap-anywhere hyphens-auto whitespace-normal italic group-hover:hidden"
             >
               <%= msg.text %>
             </span>
+
+            <!-- User + Date (visible on hover) -->
+            <div class="hidden flex-col items-center group-hover:flex">
+              <span
+                class="line-clamp-1 text-2xl font-normal wrap-anywhere hyphens-auto whitespace-normal text-black italic"
+                ><%= msg.user %></span
+              >
+
+              <span class="font-normal text-black">
+                <%= msg.added.toLocaleString("pl-PL", { day: "2-digit", month:
+                "2-digit", year: "numeric", hour: "2-digit", minute: "2-digit",
+                hour12: false }) %>
+              </span>
+            </div>
           </div>
           <% }) %>
         </div>
       </main>
+
       <br />
     </div>
     <%- include('partials/footer') %>
