@@ -1,10 +1,50 @@
-<%- include('partials/head') %>
-    <main>
-        <h1>New Message</h1>
-        <form method="POST" action="/new">
-            <input type="text" name="author" placeholder="Your name" required>
-            <input type="text" name="messageText" placeholder="Your message" required>
-            <button type="submit">Send</button>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+
+  <body class="flex flex-col items-center bg-neutral-700 p-8 text-black">
+    <div
+      class="flex w-full max-w-[1280px] flex-col gap-12 bg-neutral-100 px-12 py-12"
+    >
+      <header>
+        <h1 class="text-center text-5xl font-light italic">New Message</h1>
+      </header>
+
+      <main class="text-center">
+        <form
+          method="POST"
+          action="/new"
+          class="mx-auto flex w-full max-w-xs flex-col gap-4"
+        >
+          <input
+            type="text"
+            name="author"
+            placeholder="Your name"
+            required
+            class="rounded-md border border-gray-300 bg-white px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          />
+          <input
+            type="text"
+            name="messageText"
+            placeholder="Your message"
+            required
+            class="rounded-md border border-gray-300 bg-white px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+          />
+          <button
+            type="submit"
+            class="rounded-md bg-blue-500 px-4 py-2 font-medium text-white transition-colors hover:cursor-pointer hover:bg-blue-400"
+          >
+            Send
+          </button>
         </form>
-    </main>
+
+        <br /><br />
+
+        <a href="./" class="font-medium text-blue-500 hover:underline"
+          >Go back</a
+        >
+      </main>
+    </div>
     <%- include('partials/footer') %>
+  </body>
+</html>

@@ -1,21 +1,50 @@
-<%- include('partials/head') %>
-    <header>
-        <h1 class="text-3xl font-bold underline">
-            <%= title %>
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('partials/head') %>
+  <body class="flex flex-col items-center bg-neutral-700 p-8 text-black">
+    <div
+      class="flex w-full max-w-[1280px] flex-col gap-12 bg-neutral-100 px-12 py-12"
+    >
+      <header class="grid grid-cols-2 sm:grid-cols-3">
+        <h1
+          class="col-start-1 flex text-center text-5xl font-light italic sm:col-start-2 sm:justify-center"
+        >
+          Messages
         </h1>
-        <a href="/new" class="new-message-button">Add New Message</a>
-    </header>
-    <main>
-        <ul>
-            <% messages.forEach(function(msg) { %>
-                <li>
-                    <strong>
-                        <%= msg.user %>
-                    </strong>
-                    <%= msg.text %>
-                        <em>(<%= msg.added.toLocaleString() %>)</em>
-                </li>
-                <% }) %>
-        </ul>
-    </main>
+        <a
+          href="/new"
+          class="col-start-2 m-auto mr-0 mb-0 flex justify-end rounded border-2 border-black px-4 py-2 align-bottom font-bold text-black hover:bg-black hover:text-white sm:col-start-3"
+        >
+          Add
+        </a>
+      </header>
+
+      <main>
+        <% const colors =
+        ["bg-red-200","bg-yellow-200","bg-green-200","bg-blue-200","bg-purple-200"];
+        let colorPool = []; const repeatTimes = Math.ceil(messages.length /
+        colors.length); for (let i = 0; i < repeatTimes; i++) { colorPool =
+        colorPool.concat(colors); } colorPool.sort(() => Math.random() - 0.5);
+        %>
+
+        <div
+          class="grid [grid-template-columns:repeat(auto-fill,minmax(240px,1fr))] place-items-center gap-12"
+        >
+          <% messages.slice().reverse().forEach(function(msg, i) { %>
+          <div
+            class="<%= colorPool[i] %> flex aspect-3/2 w-full flex-col items-center justify-center overflow-hidden p-8 font-light text-black shadow-md"
+          >
+            <span
+              class="line-clamp-2 p-1 text-center text-2xl wrap-anywhere hyphens-auto whitespace-normal italic"
+            >
+              <%= msg.text %>
+            </span>
+          </div>
+          <% }) %>
+        </div>
+      </main>
+      <br>
+    </div>
     <%- include('partials/footer') %>
+  </body>
+</html>
