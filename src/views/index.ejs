@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('partials/head') %>
-  <body class="flex flex-col items-center bg-neutral-700 p-8 text-black">
+  <body
+    class="flex min-h-screen flex-col items-center justify-between bg-neutral-700 text-black sm:p-8 sm:pb-0"
+  >
     <div
       class="flex w-full max-w-[1280px] flex-col gap-12 bg-neutral-100 px-12 py-12"
     >
       <header class="grid grid-cols-2 sm:grid-cols-3">
         <h1
-          class="col-start-1 flex text-center text-5xl font-light italic sm:col-start-2 sm:justify-center"
+          class="col-start-1 flex items-center text-center text-3xl font-normal italic sm:col-start-2 sm:justify-center sm:text-5xl sm:font-light"
         >
           Messages
         </h1>
@@ -28,7 +30,7 @@
         %>
 
         <div
-          class="grid [grid-template-columns:repeat(auto-fill,minmax(240px,1fr))] place-items-center gap-12"
+          class="grid [grid-template-columns:repeat(auto-fill,minmax(220px,1fr))] place-items-center gap-12"
         >
           <% messages.slice().reverse().forEach(function(msg, i) { %>
           <div
@@ -43,7 +45,7 @@
           <% }) %>
         </div>
       </main>
-      <br>
+      <br />
     </div>
     <%- include('partials/footer') %>
   </body>

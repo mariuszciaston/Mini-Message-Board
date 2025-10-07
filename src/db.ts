@@ -1,43 +1,85 @@
 const messages = [
   {
-    added: new Date(),
+    added: new Date("2025-10-01T09:12:00"),
     text: "Hi there!",
     user: "Amando",
   },
   {
-    added: new Date(),
+    added: new Date("2025-09-28T14:30:00"),
     text: "Hello World!",
     user: "Charles",
   },
   {
-    added: new Date(),
+    added: new Date("2025-09-30T08:45:00"),
     text: "Good morning!",
     user: "Ben",
   },
   {
-    added: new Date(),
+    added: new Date("2025-10-02T11:22:00"),
     text: "How are you?",
     user: "Diana",
   },
   {
-    added: new Date(),
+    added: new Date("2025-10-03T16:10:00"),
     text: "Nice to meet you!",
     user: "Eva",
   },
   {
-    added: new Date(),
+    added: new Date("2025-09-29T19:05:00"),
     text: "Have a great day!",
     user: "Frank",
   },
   {
-    added: new Date(),
+    added: new Date("2025-10-04T21:40:00"),
     text: "See you later!",
     user: "Grace",
   },
   {
-    added: new Date(),
+    added: new Date("2025-09-27T10:50:00"),
     text: "Take care!",
     user: "Hannah",
+  },
+
+  {
+    added: new Date("2025-10-05T13:18:00"),
+    text: "Welcome aboard!",
+    user: "Ian",
+  },
+  {
+    added: new Date("2025-10-06T07:05:00"),
+    text: "Let's get started!",
+    user: "Jack",
+  },
+  {
+    added: new Date("2025-09-25T15:42:00"),
+    text: "Keep up the good work!",
+    user: "Karen",
+  },
+  {
+    added: new Date("2025-09-26T17:33:00"),
+    text: "Long time no see!",
+    user: "Liam",
+  },
+
+  {
+    added: new Date("2025-10-01T20:20:00"),
+    text: "Happy coding!",
+    user: "Mia",
+  },
+  {
+    added: new Date("2025-10-02T09:55:00"),
+    text: "Stay positive!",
+    user: "Noah",
+  },
+  {
+    added: new Date("2025-09-30T12:00:00"),
+    text: "Enjoy your day!",
+    user: "Olivia",
+  },
+  {
+    added: new Date("2025-09-29T18:47:00"),
+    text: "Let's grab coffee!",
+    user: "Paul",
   },
 ];
 
