@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  font-family: "Segoe UI", "Noto Sans";
+}
+
 #footer {
   font-size: 0.875rem;
   padding: 1rem;
