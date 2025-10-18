@@ -39,14 +39,14 @@
             <span
               class="line-clamp-2 p-1 text-center text-2xl wrap-anywhere hyphens-auto whitespace-normal italic group-hover:hidden"
             >
-              <%= msg.text %>
+              <%- msg.text %>
             </span>
 
             <!-- User + Date (visible on hover) -->
             <div class="hidden flex-col items-center group-hover:flex">
               <span
                 class="line-clamp-1 px-1 text-2xl font-normal wrap-anywhere hyphens-auto whitespace-normal text-black italic"
-                ><%= msg.user %></span
+                ><%- msg.user %></span
               >
 
               <span class="font-normal text-black">
