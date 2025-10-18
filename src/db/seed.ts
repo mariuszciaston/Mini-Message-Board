@@ -35,7 +35,10 @@ ON CONFLICT DO NOTHING;
 
 await (async () => {
   console.log("Seeding...");
-  const client = new Client({ connectionString: process.env.DATABASE_LOCAL_URL ?? process.env.DATABASE_PUBLIC_URL });
+  const client = new Client({
+    connectionString:
+      process.env.DATABASE_LOCAL_URL ?? process.env.DATABASE_PUBLIC_URL,
+  });
   await client.connect();
   await client.query(SQL);
   await client.end();
