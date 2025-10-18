@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS messages (
   id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   added TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
   text VARCHAR(255),
-  author VARCHAR(255)
+  author VARCHAR(255),
+  CONSTRAINT unique_text_author UNIQUE (text, author)
 );
 
 INSERT INTO messages (added, text, author) VALUES
