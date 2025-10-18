@@ -16,26 +16,40 @@
         </h1>
       </header>
 
-      <main class="text-center">
+      <main class="flex flex-col items-center">
         <form
           method="POST"
           action="/new"
           class="mx-auto flex w-full max-w-xs flex-col gap-4"
         >
-          <input
-            type="text"
-            name="author"
-            placeholder="Your name"
-            required
-            class="rounded-md border border-gray-300 bg-white px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-          />
-          <input
-            type="text"
-            name="text"
-            placeholder="Your message"
-            required
-            class="rounded-md border border-gray-300 bg-white px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-          />
+          <div>
+            <% const authorError = errors?.find(err => err.path === 'author');
+            %> <% if (authorError) { %>
+            <div class="mb-2 text-sm text-red-500"><%= authorError.msg %></div>
+            <% } %>
+            <input
+              type="text"
+              name="author"
+              placeholder="Your name"
+              value="<%= data?.author || '' %>"
+              required
+              class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            />
+          </div>
+          <div>
+            <% const textError = errors?.find(err => err.path === 'text'); %> <%
+            if (textError) { %>
+            <div class="mb-2 text-sm text-red-500"><%= textError.msg %></div>
+            <% } %>
+            <input
+              type="text"
+              name="text"
+              placeholder="Your message"
+              value="<%= data?.text || '' %>"
+              required
+              class="w-full rounded-md border border-gray-300 bg-white px-3 py-2 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            />
+          </div>
           <button
             type="submit"
             class="rounded-md bg-blue-500 px-4 py-2 font-bold text-white transition-colors hover:cursor-pointer hover:bg-blue-400"
