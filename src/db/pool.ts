@@ -14,8 +14,6 @@ const pool = new Pool({
 //   return pool.query<T>(text, params);
 // };
 
-// const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
 const query = async <T extends QueryResultRow>(
   sql: string,
   params?: unknown[],
