@@ -14,7 +14,7 @@ const pool = new Pool({
 //   return pool.query<T>(text, params);
 // };
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+// const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const query = async <T extends QueryResultRow>(
   sql: string,
@@ -26,7 +26,7 @@ const query = async <T extends QueryResultRow>(
       return await pool.query<T>(sql, params);
     } catch (err) {
       if (!attempts) throw err;
-      await sleep(1000);
+      await new Promise((resolve) => setTimeout(resolve, 1000));
     }
   }
   throw new Error("Unreachable");
