@@ -7,11 +7,29 @@ const pool = new Pool({
     process.env.DATABASE_LOCAL_URL ?? process.env.DATABASE_PUBLIC_URL,
 });
 
+// const query = async <T extends QueryResultRow>(
+//   text: string,
+//   params?: unknown[],
+// ) => {
+//   return pool.query<T>(text, params);
+// };
+
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 const query = async <T extends QueryResultRow>(
-  text: string,
+  sql: string,
   params?: unknown[],
 ) => {
-  return pool.query<T>(text, params);
+  let attempts = 5;
+  while (attempts--) {
+    try {
+      return await pool.query<T>(sql, params);
+    } catch (err) {
+      if (!attempts) throw err;
+      await sleep(1000);
+    }
+  }
+  throw new Error("Unreachable");
 };
 
 export { query };
