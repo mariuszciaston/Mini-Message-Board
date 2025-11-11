@@ -5,9 +5,8 @@ dotenv.config();
 const pool = new Pool({
   connectionString:
     process.env.DATABASE_LOCAL_URL ?? process.env.DATABASE_PUBLIC_URL,
-    ssl: {
-    rejectUnauthorized: false, // fix for "read ECONNRESET" on railway deploy
-  }
+  connectionTimeoutMillis: 2000,
+  idleTimeoutMillis: 30000,
 });
 
 const query = async <T extends QueryResultRow>(
