@@ -25,9 +25,9 @@ app.get("/{*splat}", (_req, res) => {
 
 app.use(errorHandler);
 
-const port = process.env.PORT ?? "3000";
+const port = Number(process.env.PORT ?? 3000);
 
-app.listen(port, (error) => {
+app.listen(port, "0.0.0.0", (error) => {
   if (error) throw error;
-  console.log(`Server running at http://localhost:${port}/`);
+  console.log(`Server listening on 0.0.0.0:${String(port)}`);
 });
